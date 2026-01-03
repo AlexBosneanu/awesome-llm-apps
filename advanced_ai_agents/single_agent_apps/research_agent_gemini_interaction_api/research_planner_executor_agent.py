@@ -51,7 +51,7 @@ if st.button("📋 Generate Plan", disabled=not research_goal, type="primary"):
 # Phase 2: Select & Research  
 if st.session_state.plan_text:
     st.divider(); st.subheader("🔍 Select Tasks & Research")
-    selected = [f"{t['num']}. {t['text']}" for i, t in enumerate(st.session_state.tasks) if st.checkbox(f"**{t['num']}.** {t['text']}", True, key=f"task_{i}")]
+    selected = [f"{i+1}. {t['text']}" for i, t in enumerate(st.session_state.tasks) if st.checkbox(f"**{i+1}.** {t['text']}", True, key=f"task_{i}")]
     st.caption(f"✅ {len(selected)}/{len(st.session_state.tasks)} selected")
     
     if st.button("🚀 Start Deep Research", type="primary", disabled=not selected):
